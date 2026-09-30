@@ -3,15 +3,17 @@
 ###
 GET  http://127.0.0.1:8000/turf/
 Accept:  application/json
+Authorization: Basic turfadmin:turfadmin
 
 #API call for adding Turf details
 ###
 POST http://127.0.0.1:8000/turf/
 Content-Type: application/json
+Authorization: Basic turfadmin:turfadmin
 
   {
     "name": "Goal Arena",
-    "location": "Thrissur",
+    "location": "kasargod",
     "phone": "9876543212",
     "fee": 1000
   }
@@ -21,6 +23,7 @@ Content-Type: application/json
 ###
 GET  http://127.0.0.1:8000/turf/2/
 Accept:  application/json
+Authorization: Basic turfadmin:turfadmin
 
 
 
@@ -28,9 +31,10 @@ Accept:  application/json
 ###
 PUT  http://127.0.0.1:8000/turf/2/
 Content-Type: application/json
+Authorization:  Basic turfadmin:turfadmin
 
  {
-    "name": "Goal Arena",
+    "name": "Arena",
     "location": "wayanad",
     "phone": "9876543212",
     "fee": 1000
@@ -45,7 +49,7 @@ Content-Type: application/json
 ###
 POST  http://127.0.0.1:8000/admin-register/
 Content-Type: application/json
-Authorization: 
+
 
 {
     "username": "turfadmin",
@@ -55,3 +59,10 @@ Authorization:
 
 
 
+#============Turf_Bookings=============
+
+#API call for listing turf
+###
+GET  http://127.0.0.1:8000/booking-turf/
+Accept:  application/json
+Authorization: Basic turfadmin:turfadmin

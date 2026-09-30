@@ -16,11 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from bookings import views
+from turf import views
+from bookings.views import BookingListCreateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('turf/',views.TurfCreateListView.as_view()),
     path('turf/<int:pk>/',views.TurfRetrieveUpdateDelete.as_view()),
     path('admin-register/',views.AdminCreateView.as_view()),
+
+    #=======Booking routes========
+    path('booking-turf/',BookingListCreateView.as_view()),
 ]

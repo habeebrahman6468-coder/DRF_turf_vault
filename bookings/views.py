@@ -1,18 +1,16 @@
 from django.shortcuts import render
-from django.contrib.auth.models import User 
+from django.contrib.auth.models import User
 
 from rest_framework.views import APIView
-
 from rest_framework.response import Response
 from rest_framework import authentication,permissions
-from bookings.models import Turf
 
-from bookings.serializers import Turfserializer,AdminSerializer
+from bookings.models import Bookings
+from bookings.serializer import BookingsSerializer
 
 # Create your views here.
 
-
-class TurfCreateListView(APIView):
+class BookingListCreateView(APIView):
 
     authentication_classes=[authentication.BasicAuthentication]
 
@@ -20,95 +18,8 @@ class TurfCreateListView(APIView):
 
     def get(self,request):
 
-        qs =Turf.objects.all()
+        qs = Bookings.objects.all() #qs=> pynt => serialzer 
 
-        serializer_instance = Turfserializer(qs,many=True)
-
-        return Response(data=serializer_instance.data)
-
-    def post(self,request):
-
-        form_data = request.data
-
-        serializer_instance = Turfserializer(data=form_data)
-
-        if serializer_instance.is_valid():
-
-           cleaned_data = serializer_instance.validated_data
-
-           Turf.objects.create(**cleaned_data)
-
-           return Response(data=serializer_instance.validated_data)
-
-
-class TurfRetrieveUpdateDelete(APIView):
-
-    def get(self,request,pk=None):
-
-        qs = Turf.objects.get(id=pk)
-
-        serializer_instance = Turfserializer(qs)
+        serializer_instance = BookingsSerializer(qs,many=True)
 
         return Response(data=serializer_instance.data)
-
-    def put(self,request,pk=None):
-
-        form_data = request.data
-
-        serializer_instance = Turfserializer(data=form_data)
-
-        if serializer_instance.is_valid():
-
-            cleaned_data = serializer_instance.validated_data
-
-            Turf.objects.filter(id=pk).update(**cleaned_data)
-
-            return Response(data=serializer_instance.validated_data)
-
-        else:
-
-            return Response(data=serializer_instance.errors)
-
-class AdminCreateView(APIView):
-
-    def post(self,request):
-
-        form_data = request.data
-
-        serializer_instance =AdminSerializer(data=form_data)
-
-        if serializer_instance.is_valid():
-
-            cleaned_data = serializer_instance.validated_data
-
-            User.objects.create_superuser(**cleaned_data)
-
-            return Response(data=serializer_instance.validated_data)
-
-        else:
-
-            return Response(data=serializer_instance.errors)
-
-
-
-            
-
-
-
-
-
-      
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
