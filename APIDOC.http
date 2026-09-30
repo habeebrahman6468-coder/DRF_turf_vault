@@ -1,0 +1,57 @@
+#API call for listing Turf
+
+###
+GET  http://127.0.0.1:8000/turf/
+Accept:  application/json
+
+#API call for adding Turf details
+###
+POST http://127.0.0.1:8000/turf/
+Content-Type: application/json
+
+  {
+    "name": "Goal Arena",
+    "location": "Thrissur",
+    "phone": "9876543212",
+    "fee": 1000
+  }
+
+#API call for fetching Turf
+
+###
+GET  http://127.0.0.1:8000/turf/2/
+Accept:  application/json
+
+
+
+#API call for updating turf details
+###
+PUT  http://127.0.0.1:8000/turf/2/
+Content-Type: application/json
+
+ {
+    "name": "Goal Arena",
+    "location": "wayanad",
+    "phone": "9876543212",
+    "fee": 1000
+  }
+
+
+
+
+#===============ADMIN==================
+#API call for creating admin user
+
+###
+POST  http://127.0.0.1:8000/admin-register/
+Content-Type: application/json
+Authorization: 
+
+{
+    "username": "turfadmin",
+    "email": "turfadmin@gmail.com",
+    "password":"turfadmin"
+  }
+
+
+
