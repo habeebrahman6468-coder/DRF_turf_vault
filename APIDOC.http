@@ -12,8 +12,8 @@ Content-Type: application/json
 Authorization: Basic turfadmin:turfadmin
 
   {
-    "name": "Goal Arena",
-    "location": "kasargod",
+    "name": "turfix",
+    "location": "palakkad",
     "phone": "9876543212",
     "fee": 1000
   }
@@ -66,3 +66,22 @@ Content-Type: application/json
 GET  http://127.0.0.1:8000/booking-turf/
 Accept:  application/json
 Authorization: Basic turfadmin:turfadmin
+
+
+#API call for posting customer
+###
+POST http://127.0.0.1:8000/booking-turf/
+Content-Type: application/json
+Authorization: Basic turfadmin:turfadmin
+
+{
+    "customer_name": "Ronaldo",
+    "contact_no": "9876543210",
+    "turf": 1,
+    "reservation_date": "2026-10-10",
+    "duration": "02:00:00"
+}
+
+
+
+

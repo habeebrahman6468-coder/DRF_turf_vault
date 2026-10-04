@@ -27,4 +27,5 @@ urlpatterns = [
 
     #=======Booking routes========
     path('booking-turf/',BookingListCreateView.as_view()),
+    
 ]
