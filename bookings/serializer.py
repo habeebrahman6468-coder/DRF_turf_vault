@@ -1,5 +1,7 @@
 from rest_framework import serializers
 
+from turf.models import Turf
+
 
 class BookingsSerializer(serializers.Serializer):
 
@@ -7,7 +9,9 @@ class BookingsSerializer(serializers.Serializer):
 
     contact_no = serializers.CharField()
 
-    turf = serializers.IntegerField()
+    turf = serializers.PrimaryKeyRelatedField(
+        queryset=Turf.objects.all()
+    )
 
     reservation_date = serializers.DateField()
 
