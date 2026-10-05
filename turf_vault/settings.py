@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'turf',
     'bookings',
+    'booking_v2',
 
 ]
 

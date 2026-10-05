@@ -1,5 +1,7 @@
 from rest_framework import serializers
 
+from datetime import datetime
+
 from turf.models import Turf
 
 
@@ -18,6 +20,24 @@ class BookingsSerializer(serializers.Serializer):
     reservation_time = serializers.TimeField(read_only=True)
 
     duration = serializers.DurationField()
+
+    def validate(self, validated_data):
+
+        reservation_date = validated_data.get("reservation_date")
+
+        if reservation_date < datetime.today().date():
+            raise serializers.ValidationError("Invalid date")
+
+        return validated_data
+
+    
+
+    
+
+
+
+        
+    
 
 
 

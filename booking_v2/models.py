@@ -1,6 +1,7 @@
 from django.db import models
 
 from turf.models import Turf
+
 # Create your models here.
 
 
@@ -19,10 +20,9 @@ class Bookings(models.Model):
         null=True
     )
 
+    End_time =models.TimeField()
+
     duration = models.DurationField(max_length=200)
 
     def __str__(self):
         return self.customer_name
-
-
-   
