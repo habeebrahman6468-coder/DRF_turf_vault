@@ -83,6 +83,17 @@ Authorization: Basic turfadmin:turfadmin
 }
 
 
+#API call
+###
+POST http://127.0.0.1:8000/v2/booking/signup/
+Content-Type: application/json
+
+{
+    "username": "jerry",
+    "email": "jerry@gmail.com",
+    "password":"jerry"
+  }
+
 
 
 

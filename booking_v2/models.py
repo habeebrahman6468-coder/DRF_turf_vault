@@ -5,7 +5,7 @@ from turf.models import Turf
 # Create your models here.
 
 
-class Bookings(models.Model):
+class Booking(models.Model):
 
     customer_name = models.CharField(max_length=200)
 
@@ -20,7 +20,7 @@ class Bookings(models.Model):
         null=True
     )
 
-    End_time =models.TimeField()
+    end_time =models.TimeField()
 
     duration = models.DurationField(max_length=200)
 
