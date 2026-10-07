@@ -11,3 +11,6 @@ class Turf(models.Model):
     phone = models.PositiveIntegerField()
 
     fee = models.PositiveIntegerField()
+
+    def __str__(self):
+        return self.name

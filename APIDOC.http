@@ -82,8 +82,8 @@ Authorization: Basic turfadmin:turfadmin
     "duration": "02:00:00"
 }
 
-
-#API call
+### v2 endpoints =========
+#API call for creating a new user
 ###
 POST http://127.0.0.1:8000/v2/booking/signup/
 Content-Type: application/json
@@ -93,6 +93,64 @@ Content-Type: application/json
     "email": "jerry@gmail.com",
     "password":"jerry"
   }
+
+
+#api call for listing all turf reservation 
+
+###
+GET http://127.0.0.1:8000/v2/booking/reservation/
+Accept: application/json
+Authorization: Basic turfadmin:turfadmin
+
+
+#api call for creating  turf reservation 
+
+###
+POST  http://127.0.0.1:8000/v2/booking/reservation/
+Content-Type:  application/json
+Authorization: Basic turfadmin:turfadmin
+
+{
+    "customer_name": "Shaiju",
+    "contact_no": "9876543210",
+    "turf": 2,
+    "reservation_date": "2026-10-10",
+    "reservation_time": "2:00:00",
+    "duration": "02:00:00"
+}
+
+#API call for retrieving turf reservation
+###
+GET http://127.0.0.1:8000/v2/booking/reservation/2/
+Accept: application/json
+Authorization: Basic turfadmin:turfadmin
+
+
+#api call for updating a turf reservation 
+###
+PUT http://127.0.0.1:8000/v2/booking/reservation/3/
+Content-Type: application/json
+Authorization: Basic turfadmin:turfadmin
+
+
+{
+    "customer_name": "Shaiju",
+    "contact_no": "9876543210",
+    "turf": 1,
+    "reservation_date": "2026-10-10",
+    "reservation_time": "1:00:00",
+    "duration": "02:00:00"
+}
+
+
+#api call for deleting a reservation 
+
+###
+DELETE http://127.0.0.1:8000/v2/booking/reservation/3/
+Accept: application/json
+Authorization:  Basic turfadmin:turfadmin
+
+
 
 
 

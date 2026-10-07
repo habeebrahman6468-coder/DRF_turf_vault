@@ -35,11 +35,11 @@ class BookingListCreateView(APIView):
 
             cleaned_data = serializer_instance.validated_data
 
-            # turf = cleaned_data.get("turf")       # MAIN PART
+            turf = cleaned_data.get("turf")       # MAIN PART
 
-            # turf_object = Turf.objects.get(id =turf)
+            turf_object = Turf.objects.get(id =turf)
 
-            # cleaned_data["turf"] = turf_object
+            cleaned_data["turf"] = turf_object
 
             Bookings.objects.create(**cleaned_data)       #XXXXXXXXXX
 
